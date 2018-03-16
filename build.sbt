@@ -21,10 +21,16 @@ lazy val noPublishSettings = Seq(
 
 lazy val commonSettings = Seq()
 
+lazy val spireDeps = {
+  val ver = "0.14.1"
+  Seq("org.typelevel" %% "spire" % ver)
+}
+
 lazy val breeze2 = (project in file("."))
   .aggregate(core)
   .settings(noPublishSettings)
 
 lazy val core = (project in file("breeze2"))
   .settings(commonSettings: _*)
+  .settings(libraryDependencies ++= spireDeps)
   .settings(moduleName := "breeze2")
