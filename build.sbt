@@ -6,7 +6,6 @@ scalacOptions in ThisBuild ++= "-deprecation" ::
                                "-feature" ::
                                "-unchecked" ::
                                "-Xfatal-warnings" ::
-                               "-Xlint" ::
                                "-Yno-adapted-args" ::
                                "-Ywarn-dead-code" ::
                                "-Ywarn-numeric-widen" ::
