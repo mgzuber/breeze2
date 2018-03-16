@@ -13,6 +13,7 @@ scalacOptions in ThisBuild ++= "-deprecation" ::
                                "-Ywarn-value-discard" ::
                                "-Xfuture" ::
                                Nil
+crossScalaVersions in ThisBuild := Seq("2.11.11", "2.12.4")
 
 lazy val noPublishSettings = Seq(
   publish := {},
