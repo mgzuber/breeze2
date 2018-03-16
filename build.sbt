@@ -28,10 +28,22 @@ lazy val spireDeps = {
 }
 
 lazy val breeze2 = (project in file("."))
-  .aggregate(core)
+  .aggregate(core, examples, benchmarks)
   .settings(noPublishSettings)
 
-lazy val core = (project in file("breeze2"))
+lazy val core = (project in file("core"))
   .settings(commonSettings: _*)
   .settings(libraryDependencies ++= spireDeps)
   .settings(moduleName := "breeze2")
+
+lazy val examples = (project in file("examples"))
+  .settings(commonSettings: _*)
+  .dependsOn(core)
+  .settings(noPublishSettings)
+  .settings(moduleName := "breeze2-examples")
+
+lazy val benchmarks = (project in file("benchmarks"))
+  .settings(commonSettings: _*)
+  .dependsOn(core)
+  .settings(noPublishSettings)
+  .settings(moduleName := "breeze2-benchmarks")
